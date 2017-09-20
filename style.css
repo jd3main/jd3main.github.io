@@ -12,25 +12,46 @@ body {
 }
 
 
+
+/* == Utility == */
+
+
+/* == Top Panel == */
 .TopPanel {
 	margin: 0;
-	padding: 0.1%;
+	padding: 0;
 	max-width: 100%;
 	max-height: 1%;
+	min-height: 30px;
 	background-color: #DDD;
 	
 	border-bottom: 1px solid #FFFFFF;
 	
 	color: #111111;
-	text-align: center;
 	
+	text-align: center;
 	overflow: hidden;
 }
 
-h1.TopPanelTitle {
+.TopPanelTitle {
+	margin: auto;
+	width: 200px;
+	color: #111111;
+	background-color: rgba(0,0,0,0);
+	border: 2px solid rgba(0,0,0,0);
+}
+.TopPanelTitle:hover {
+	transition-duration: 0.5s;
+	border: 2px solid rgba(200,200,200,1);
+	color: #111111;
+}
+.TopPanelTitle:active {
+	border: 2px solid rgba(255,255,255,1);
 	color: #111111;
 }
 
+
+/* == Left Panel == */
 div.LeftPanel {
 	
 	float: left;
@@ -52,10 +73,35 @@ div.LeftPanel {
 	margin: 5px;
 	padding: 0px 100px;
 	
-	font-size: 20px;
-	background-color: #EEE;
-	border-radius: 5px;
-	border: 1px solid #FFF;
 	cursor: pointer;
 	text-align: center;
+	font-size: 20px;
+	
+	outline:none;
+	border-radius: 5px;
+	border: 1px solid rgba(0,0,0,0);
+	background-color: #EEE;
 }
+
+.LeftPanelButton:Hover {
+	transition-duration: 0.1s;
+	
+	border: 1px solid #FFF;
+	background-color: #CCC;
+}
+
+.LeftPanelButton:active {
+	transition-duration: 0.1s;
+	
+	border: 1px solid #FFF;
+	background-color: #999;
+}
+
+.LeftPanelButton:focus {
+	transition-duration: 0.2s;
+	
+	border: 1px solid #FFF;
+	outline: none;
+}
+
+/* == Middle == */
