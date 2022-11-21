@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<body>
+        <p>Input:</p>
+        <textarea id="input" oninput="update()">你好謝謝小籠包再見</textarea>
+		<br>
+        <p>Output:</p>
+        <textarea id="output" ></textarea>
+
+		<script>
+        let input = document.querySelector("#input");
+        let output = document.querySelector("#output");
+        function update() {
+            output.value = input.value.split("").join("\n");
+            output.style.height = "5px";
+            output.style.height = (output.scrollHeight)+"px";
+        }
+        update();
+		</script>
+	</body>
+	
+</html>
