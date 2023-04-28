@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>卡漫社猜歌大會轉盤</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        
+        <!-- category buttons -->
+        <div id="category">
+            <h2 class="label">一般池</h2>
+            <button class="cate-btn" id="btn-anm">動畫</button>
+            <button class="cate-btn" id="btn-game">遊戲</button>
+            <button class="cate-btn" id="btn-org">原創曲</button>
+            <button class="cate-btn" id="btn-v">Vocaloid</button>
+            <br/>
+            <h2 class="label">限定池</h2>
+            <button class="cate-btn" id="btn-anm_plus">動畫</button>
+            <button class="cate-btn" id="btn-game_plus">遊戲</button>
+            <button class="cate-btn" id="btn-org_plus">原創曲</button>
+            <button class="cate-btn" id="btn-v_plus">Vocaloid</button>
+        </div>
+
+        <!-- wheels -->
+        <iframe src="https://pickerwheel.com/rng?id=wmCGE" id="wheel_anm" frameborder="0" scrolling="yes"></iframe>
+        <iframe src="https://pickerwheel.com/rng?id=wCUZK" id="wheel_game" frameborder="0" scrolling="yes" width="100%" height="100%"></iframe>
+        <iframe src="https://pickerwheel.com/rng?id=ffhND" id="wheel_org" frameborder="0" scrolling="yes" width="100%" height="100%"></iframe>
+        <iframe src="https://pickerwheel.com/rng?id=pJhiE" id="wheel_v" frameborder="0" scrolling="yes" width="100%" height="100%"></iframe>
+        <iframe src="https://pickerwheel.com/rng?id=eHfB4" id="wheel_anm_plus" frameborder="0" scrolling="yes" width="100%" height="100%"></iframe>
+        <iframe src="https://pickerwheel.com/rng?id=uAL3y" id="wheel_game_plus" frameborder="0" scrolling="yes" width="100%" height="100%"></iframe>
+        <iframe src="https://pickerwheel.com/rng?id=Fyr9U" id="wheel_org_plus" frameborder="0" scrolling="yes" width="100%" height="100%"></iframe>
+        <iframe src="https://pickerwheel.com/rng?id=rKyvN" id="wheel_v_plus" frameborder="0" scrolling="yes" width="100%" height="100%"></iframe>
+    </div>
+    
+    <script>
+
+        var categories = ["anm", "game", "org", "v", "anm_plus", "game_plus", "org_plus", "v_plus"];
+
+        function onSelectCate(cate) {
+            var wheels = document.getElementsByTagName("iframe");
+            var btn = document.getElementById("btn-" + cate);
+            for (var i = 0; i < wheels.length; i++) {
+                btn = document.getElementById("btn-" + categories[i]);
+                if (wheels[i].id == "wheel_" + cate) {
+                    wheels[i].style.display = "block";
+                    btn.classList.add("active");
+                } else {
+                    wheels[i].style.display = "none";
+                    btn.classList.remove("active");
+                }
+            }
+        }
+
+        for (var i = 0; i < categories.length; i++) {
+            btn = document.getElementById("btn-" + categories[i]);
+            btn.addEventListener("click", function() {
+                onSelectCate(this.id.split("-")[1]);
+            });
+        }
+
+        onSelectCate("anm");
+    </script>
+
+</body>
+
+
+</html>
